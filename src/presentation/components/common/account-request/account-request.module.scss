@@ -1,0 +1,122 @@
+.section {
+  display: flex;
+  min-height: 100vh;
+  background: #ededed;
+}
+
+.left {
+  flex: 1;
+  background: #ededed;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 64px 0 0 64px;
+}
+
+.title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #111;
+  margin-bottom: 32px;
+  max-width: 520px;
+}
+
+.illustration {
+  position: relative;
+  width: 420px;
+  height: 420px;
+  margin-top: 32px;
+}
+
+.appImg {
+  width: 270px;
+  position: absolute;
+  left: 0;
+  top: 40px;
+  z-index: 1;
+}
+
+.cardImg {
+  width: 220px;
+  position: absolute;
+  left: 160px;
+  top: 0;
+  z-index: 2;
+}
+
+.right {
+  flex: 1;
+  background: #fff;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 48px 0 0 48px;
+  min-height: 100vh;
+}
+
+.form {
+  width: 100%;
+  max-width: 480px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.input {
+  width: 100%;
+  background: #f5f5f5;
+  border: none;
+  border-radius: 2rem;
+  padding: 18px 24px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #222;
+  margin-bottom: 0;
+  outline: none;
+  transition: border 0.2s;
+}
+
+.inputPurple {
+  border: 2px solid #a259e6;
+  background: #fff;
+}
+
+.input:focus {
+  border: 2px solid #a259e6;
+  background: #fff;
+}
+
+.terms {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 1rem;
+  color: #222;
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+.terms input[type="checkbox"] {
+  margin-top: 4px;
+  accent-color: #a259e6;
+}
+
+.terms a {
+  color: #a259e6;
+  text-decoration: underline;
+}
+
+.button {
+  width: 120px;
+  background: #ededed;
+  color: #bbb;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 2rem;
+  padding: 14px 0;
+  margin-top: 8px;
+  cursor: not-allowed;
+  opacity: 0.7;
+} 

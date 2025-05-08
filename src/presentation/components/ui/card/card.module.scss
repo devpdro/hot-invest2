@@ -1,0 +1,76 @@
+@import '../../../styles/themes/light.scss';
+@import '../../../styles/themes/mixins.scss';
+
+.cardSection {
+  @include container(1280px, 0 auto 8rem auto);
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  border-radius: 40px;
+  min-height: 660px;
+}
+
+.leftCol {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding-left: 80px;
+  padding-top: 90px;
+  width: 600px;
+}
+
+.title {
+  font-size: 52px;
+  font-weight: 500;
+  line-height: 52px;
+  margin-bottom: 40px;
+}
+
+.subtitle {
+  font-size: 22px;
+  font-weight: 400;
+  margin-bottom: 48px;
+}
+
+.button {
+  background: $color-primary;
+  color: #fff;
+  font-weight: 300;
+  font-family: "Geist", sans-serif;
+  padding: 0.8rem 2rem;
+  border-radius: 999px;
+  font-size: 20px;
+  width: 180px;
+  text-align: left;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s;
+  box-shadow: none;
+}
+
+.button:hover {
+  background: $color-primaryHover;
+}
+
+.rightCol {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  padding-right: 32px;
+  padding-top: 60px;
+}
+
+.cardsWrapper {
+  position: relative;
+  width: 410px;
+  height: 320px;
+}
+
+.cardImg1 {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 450px;
+}

@@ -1,0 +1,8 @@
+export { default as Footer } from './footer/footer'
+export { default as Header } from './header/header'
+export { default as Modal } from './modal/modal'
+export { default as NavItem } from './navbar/nav-item'
+export { default as NavMobile } from './navbar/nav-mobile'
+export { default as Navbar } from './navbar/navbar'
+export { default as StepsOpen } from './steps-open/steps-open'
+

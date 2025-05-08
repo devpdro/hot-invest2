@@ -1,0 +1,121 @@
+@import '../../../styles/themes/light.scss';
+@import '../../../styles/themes/mixins.scss';
+
+.container {
+  background: #f7f7f7;
+
+}
+.serviceSection {
+  @include container(1180px,4.5rem auto 0 auto);
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding:84px 0 84px 0;
+}
+
+.left {
+  flex: 1;
+  max-width: 600px;
+  margin-right: 6vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-top: 24px;
+}
+
+.title {
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 24px;
+}
+
+.subtitle {
+  font-size: 1.25rem;
+  font-weight: 400;
+  margin-bottom: 0;
+  color: #222;
+  max-width: 90%;
+}
+
+.right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-left: 40px;
+}
+
+.card {
+  background: #fff;
+  border-radius: 2rem;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+  display: flex;
+  align-items: center;
+  padding: 32px 36px;
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: #111;
+  margin-bottom: 0;
+  gap: 24px;
+  min-height: 80px;
+}
+
+.iconCol {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  min-width: 40px;
+  margin-right: 16px;
+}
+
+.iconMain {
+  color: $color-primary;
+  font-size: 2.1rem;
+  margin-top: 2px;
+}
+
+.iconSecondary {
+  color: $color-primary;;
+  font-size: 2rem;
+  margin-top: 2px;
+}
+
+.cardTitle {
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.phoneBlock {
+  margin-bottom: 6px;
+}
+
+.phone {
+  color: $color-primary;;
+  font-size: 1.25rem;
+  font-weight: 700;
+  display: block;
+}
+
+.phoneDesc {
+  color: #111;
+  font-size: 1rem;
+  font-weight: 400;
+  display: block;
+  margin-bottom: 2px;
+}
+
+.linkPurple {
+  color: $color-primary;;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s;
+  margin-top: 2px;
+}
+
+.linkPurple:hover {
+  color: $color-primary;;
+} 

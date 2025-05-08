@@ -1,0 +1,112 @@
+@import '../../../styles/themes/light.scss';
+@import '../../../styles/themes/mixins.scss';
+
+.faqSection {
+  @include container(1180px, 64px auto 0 auto);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.left {
+  margin-right: 8vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-top: 40px;
+}
+
+.title {
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 32px;
+}
+
+.subtitle {
+  font-size: 1.25rem;
+  font-weight: 400;
+  margin-bottom: 40px;
+  color: #222;
+  max-width: 90%;
+}
+
+.button {
+  background: $color-primary;
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 500;
+  border: none;
+  border-radius: 2rem;
+  padding: 1.1rem 2.5rem;
+  margin-top: 8px;
+  box-shadow: none;
+  width: fit-content;
+  min-width: 320px;
+  text-align: center;
+  cursor: alias;
+}
+
+.right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-left: 40px;
+  margin-top: 0;
+  min-width: 480px;
+  max-width: 600px;
+}
+
+.card {
+  background: #fff;
+  border-radius: 2rem;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 0;
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: #111;
+  cursor: pointer;
+  transition: box-shadow 0.2s;
+  overflow: hidden;
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 32px 36px;
+}
+
+.card.open {
+  box-shadow: 0 4px 24px rgba(130,10,209,0.10);
+}
+
+.answer {
+  font-size: 1.05rem;
+  font-weight: 400;
+  color: #222;
+  background: #fff;
+  padding: 0 36px;
+  transition: all 0.35s cubic-bezier(.4,0,.2,1);
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+}
+
+.card.open .answer {
+  opacity: 1;
+  max-height: 500px;
+  padding-bottom: 32px;
+  padding-top: 0;
+}
+
+.icon {
+  font-size: 2rem;
+  color: #111;
+  margin-left: 24px;
+  flex-shrink: 0;
+}
