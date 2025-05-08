@@ -1,42 +1,49 @@
-import { FiSmartphone, FiDollarSign, FiBarChart2, FiCheck, FiSmile, FiUsers } from "react-icons/fi";
+import {
+    IconDeviceMobile,
+    IconCurrencyDollar,
+    IconTrendingUp,
+    IconCheck,
+    IconMoodSmile,
+    IconUsers
+} from "@tabler/icons-react";
 import styles from "./benefits.module.scss";
 
 const BENEFITS = [
     {
-        icon: <FiSmartphone />,
-        title: "Tudo no app",
-        desc: "Controle sua conta e investimentos direto do celular, com autonomia total e sem complicações.",
+        icon: <IconDeviceMobile size={36} stroke={1.7} />,
+        title: "Tudo no seu celular",
+        desc: "Gerencie sua conta e investimentos de forma simples e rápida, direto pelo app, onde estiver.",
     },
     {
-        icon: <FiDollarSign />,
-        title: "Transferências sem custo",
-        desc: "Envie e receba dinheiro à vontade, sem tarifas ou limites escondidos.",
+        icon: <IconCurrencyDollar size={36} stroke={1.7} />,
+        title: "Transferências gratuitas",
+        desc: "Envie e receba dinheiro sem pagar taxas, com liberdade total para movimentar sua conta.",
     },
     {
-        icon: <FiCheck />,
-        title: "Rendimento inteligente",
-        desc: "Seu saldo rende automaticamente mais que a poupança após 30 dias.",
+        icon: <IconTrendingUp size={36} stroke={1.7} />,
+        title: "Seu dinheiro rende mais",
+        desc: "Deixe seu saldo render automaticamente acima da poupança, sem esforço e sem burocracia.",
     },
     {
-        icon: <FiBarChart2 />,
-        title: "Organização automática",
-        desc: "Pague contas, acompanhe boletos e receba lembretes de vencimento num só lugar.",
+        icon: <IconCheck size={36} stroke={1.7} />,
+        title: "Organização inteligente",
+        desc: "Pague contas, acompanhe boletos e receba alertas de vencimento, tudo em um só lugar.",
     },
     {
-        icon: <FiSmile />,
-        title: "Zero mensalidade",
-        desc: "Nada de taxas de manutenção ou tarifas surpresa. Sua conta é gratuita, simples assim.",
+        icon: <IconMoodSmile size={36} stroke={1.7} />,
+        title: "Sem mensalidade",
+        desc: "Conta 100% gratuita, sem tarifas de manutenção ou surpresas no final do mês.",
     },
     {
-        icon: <FiUsers />,
-        title: "Acesso para todos",
-        desc: "Abra sua conta HotInvest sem burocracia e sem análise de crédito.",
+        icon: <IconUsers size={36} stroke={1.7} />,
+        title: "Acesso facilitado",
+        desc: "Abra sua conta HotInvest sem burocracia, sem análise de crédito e para todos os perfis.",
     },
 ];
 
 const Benefits = () => {
     return (
-        <section className={styles.section}>
+        <section id="beneficios" className={styles.section}>
             <h2 className={styles.title}>
                 Tudo o que você precisa, com a conta da <span style={{ color: "#EF5635" }}>Hot</span><span style={{ color: "#16487E", fontStyle: "italic" }}>Invest</span>.
             </h2>

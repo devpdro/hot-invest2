@@ -33,14 +33,13 @@ const NavMobile = ({ closeMenu }: NavMobileProps) => {
             </NavItem>
           ))}
         </div>
-        <section className={S['auth-buttons']}>
-          <Link href="/area-de-acesso" legacyBehavior>
-            <a className={S.link} onClick={closeMenu}>
-              <span>Área de acesso</span>
+        <aside className={S['right-section']}>
+          <Link href="#" legacyBehavior>
+            <a className={S.link}>
+              <span>Quero ser HotInvest</span>
             </a>
           </Link>
-          <ICON.IconUser className={S.icon} />
-        </section>
+        </aside>
       </nav>
     </div>
   )

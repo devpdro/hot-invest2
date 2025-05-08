@@ -17,7 +17,7 @@
     background-color: $color-snow;
     color: $color-darkHigh;
     height: 100%;
-    width: 75%;
+    width: 100%;
     padding: 1rem;
     .close-section {
       @include display-flex(none, flex-end);
@@ -32,16 +32,25 @@
       font-size: $font-small;
       gap: 0.5rem;
     }
-    .auth-buttons {
-      @include display-flex(flex-start, none);
-      font-size: $font-default;
-      padding: 1rem;
+    .right-section {
+      @include display-flex;
+      @include hover;
+      font-family: "Geist", sans-serif;
+      font-size: 1rem;
+      margin-top: 0.8rem;
+      border-radius: 3px;
+      padding: 0.8rem 1.4rem;
+      background-color: $color-primary;
+      font-weight: 500;
+      color: $color-snow;
       .link {
-        color: $color-darkHigh;
+        color: inherit;
       }
-      .icon {
-        font-size: 2rem;
-        margin-left: 0.3rem;
+      &:hover {
+        background-color: $color-primaryHover;
+      }
+      @media (min-width: 1024px) {
+        display: flex;
       }
     }
   }

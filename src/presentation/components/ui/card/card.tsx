@@ -14,7 +14,6 @@ const Card = () => {
                 </h1>
                 <p className={styles.subtitle}>
                     Zero tarifas, zero complicações e<br /> benefícios que realmente importam.
-
                 </p>
                 <button
                     className={styles.button}

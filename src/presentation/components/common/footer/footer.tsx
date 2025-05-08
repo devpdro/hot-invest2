@@ -1,24 +1,31 @@
+"use client";
+
 import React from "react";
 import styles from "./footer.module.scss";
 import { FaLinkedinIn, FaYoutube, FaFacebookF, FaInstagram, FaTimes } from "react-icons/fa";
+import Image from 'next/image';
+import { IMAGE } from "src/presentation/assets";
 
 export default function Footer() {
+  // Função para scroll suave
+  const handleSmoothScroll = (id: string) => (e: React.MouseEvent) => {
+    e.preventDefault();
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <footer className={styles.footer}>
       <div className={styles.columns}>
-        {/* Coluna 1 */}
+
         <div className={styles.column}>
           <h4>Ouvidoria</h4>
           <ul>
             <li>Atendimento em dias úteis das 8h às 18h (horário de Brasília)</li>
             <li><strong>0800 887 0463</strong></li>
             <li>ouvidoria@hotinvest.com.br</li>
-          </ul>
-          <h5>Privacidade e proteção de dados</h5>
-          <ul>
-            <li>Encarregada: Raíssa Moura Ferreira</li>
-            <li>dpo@hotinvest.com.br</li>
-            <li><strong>Procedimentos de Ouvidoria</strong></li>
           </ul>
           <h5>Redes Sociais</h5>
           <div className={styles.social}>
@@ -30,18 +37,22 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Coluna 2 */}
         <div className={styles.column}>
-          <h4>Imprensa</h4>
+          <h4>Privacidade e proteção de dados</h4>
           <ul>
-            <li>Sala de Imprensa</li>
+            <li>dpo@hotinvest.com.br</li>
+            <li>Procedimentos de Ouvidoria</li>
           </ul>
-          <h5>Ajuda</h5>
+          <h5>Explorar</h5>
           <ul>
-            <li>Segurança</li>
-            <li>Perguntas frequentes</li>
+            <li>
+              <a href="#atendimento" onClick={handleSmoothScroll("atendimento")}>Central de Ajuda</a>
+            </li>
           </ul>
-          <h5>Fale com a gente</h5>
+        </div>
+
+        <div className={styles.column}>
+          <h4>Fale com a gente</h4>
           <ul>
             <li>
               Capitais e regiões metropolitanas<br />
@@ -51,37 +62,23 @@ export default function Footer() {
               Demais localidades<br />
               <strong>0800 591 2117</strong>
             </li>
-            <li>Canal de atendimento em libras</li>
-            <li>Portal de Relacionamento com Autoridades Judiciais e Administrativas</li>
+          </ul>
+          <h5>Ajuda</h5>
+          <ul>
+            <li>
+              <a href="#perguntas-frequentes" onClick={handleSmoothScroll("perguntas-frequentes")}>Perguntas frequentes</a>
+            </li>
           </ul>
         </div>
 
-        {/* Coluna 3 */}
-        <div className={styles.column}>
-          <h4>Explorar</h4>
-          <ul>
-            <li>Blog</li>
-            <li>Central de Ajuda</li>
-          </ul>
-          <h5>Carreiras</h5>
-          <ul>
-            <li>Trabalhe com a gente</li>
-          </ul>
-          <h5>Fornecedores</h5>
-          <ul>
-            <li>Seja um fornecedor</li>
-          </ul>
-        </div>
-
-        {/* Coluna 4 */}
         <div className={styles.column}>
           <h4>Transparência</h4>
           <ul>
-            <li>Política de privacidade</li>
-            <li>Política anticorrupção</li>
-            <li>Política KYC</li>
-            <li>Programa responsabilidade social</li>
-            <li>Código de Ética</li>
+            <li><a href="#">Política de privacidade</a></li>
+            <li><a href="#">Política anticorrupção</a></li>
+            <li><a href="#">Política KYC</a></li>
+            <li><a href="#">Programa responsabilidade social</a></li>
+            <li><a href="#">Código de Ética</a></li>
           </ul>
         </div>
       </div>
@@ -91,7 +88,7 @@ export default function Footer() {
           <span style={{ color: "#EF5635" }}>Hot</span><span style={{ color: "#fff", fontStyle: "italic" }}>Invest</span>
         </div>
         <div className={styles.copyright}>
-          © 2025 HotInvest S.A - Instituição de Pagamento. 00.000.000/0001-00. Avenida da Inovação, 100 - São Paulo, SP - 01000-000
+          © 2025 HotInvest S.A - Instituição de Pagamento. 12.345.678/0001-99. Rua Exemplo, 123 - Centro, Rio de Janeiro, RJ - 20000-000
         </div>
         <div className={styles.accessibility}>
           <span role="img" aria-label="acessibilidade">🦽</span>

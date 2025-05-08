@@ -7,14 +7,30 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  @media (max-width: 900px) {
+    padding: 40px 0 48px 0;
+  }
+  @media (max-width: 600px) {
+    padding: 32px 0 32px 0;
+  }
 }
 
 .title {
   color: $color-darkHigh;
   font-size: 2.6rem;
+  padding: 0 2rem;
   font-weight: 700;
   text-align: center;
   margin-bottom: 48px;
+  @media (max-width: 900px) {
+    font-size: 2rem;
+    margin-bottom: 32px;
+  }
+  @media (max-width: 600px) {
+    font-size: 1.6rem;
+    line-height: 25.6px;
+    margin-bottom: 20px;
+  }
 }
 
 .grid {
@@ -23,6 +39,16 @@
   gap: 32px;
   width: 90%;
   max-width: 1100px;
+  @media (max-width: 900px) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  @media (max-width: 600px) {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    width: 100%;
+    justify-items: center;
+  }
 }
 
 .card {
@@ -34,12 +60,36 @@
   flex-direction: column;
   align-items: flex-start;
   min-height: 220px;
+  @media (max-width: 900px) {
+    padding: 28px 16px 24px 16px;
+    min-height: 180px;
+  }
+  @media (max-width: 600px) {
+    align-items: center;
+    padding: 14px 24px 14px 24px;
+    min-height: 110px;
+    width: 100%;
+    max-width: 440px;
+    margin: 0 auto;
+    box-sizing: border-box;
+  }
 }
 
 .icon {
   color: #111;
   font-size: 2.1rem;
   margin-bottom: 18px;
+  @media (max-width: 900px) {
+    font-size: 1.7rem;
+    margin-bottom: 12px;
+  }
+  @media (max-width: 600px) {
+    font-size: 1.3rem;
+    margin-bottom: 8px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
 }
 
 .cardTitle {
@@ -47,6 +97,16 @@
   font-weight: 700;
   margin-bottom: 10px;
   color: #111;
+  @media (max-width: 900px) {
+    font-size: 1.1rem;
+    margin-bottom: 7px;
+  }
+  @media (max-width: 600px) {
+    font-size: 1rem;
+    margin-bottom: 5px;
+    text-align: center;
+    width: 100%;
+  }
 }
 
 .cardDesc {
@@ -54,4 +114,12 @@
   font-weight: 400;
   color: #222;
   line-height: 1.5;
+  @media (max-width: 900px) {
+    font-size: 0.97rem;
+  }
+  @media (max-width: 600px) {
+    font-size: 0.92rem;
+    text-align: center;
+    width: 100%;
+  }
 }

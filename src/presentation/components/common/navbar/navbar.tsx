@@ -19,6 +19,15 @@ interface MenuItem {
 const Navbar = () => {
   const [isSideMenuOpen, setSideMenu] = useState(false)
 
+  // Função para scroll suave
+  const handleSmoothScroll = (id: string) => (e: React.MouseEvent) => {
+    e.preventDefault();
+    const el = document.getElementById(id.replace('#', ''));
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <nav className={S.navbar}>
       <div className={S.container}>
@@ -32,12 +41,23 @@ const Navbar = () => {
           <div className={S['nav-items']}>
             {MENU.map((item, key) => (
               <div key={key} className={S['nav-link']}>
-                <Link href={item.link ?? '#'} legacyBehavior>
-                  <a className={S['link-text']}>
+                {item.link && item.link.startsWith('#') ? (
+                  <a
+                    href={item.link}
+                    className={S['link-text']}
+                    onClick={handleSmoothScroll(item.link)}
+                  >
                     <span>{item.label}</span>
                     {item.children && <ICON.IoIosArrowDown className={`${S['arrow-icon']} ${S['rotate-180']}`} />}
                   </a>
-                </Link>
+                ) : (
+                  <Link href={item.link ?? '#'} legacyBehavior>
+                    <a className={S['link-text']}>
+                      <span>{item.label}</span>
+                      {item.children && <ICON.IoIosArrowDown className={`${S['arrow-icon']} ${S['rotate-180']}`} />}
+                    </a>
+                  </Link>
+                )}
                 {item.children && (
                   <div className={S.dropdown}>
                     {item.children.map((item: MenuItem, key: number) => (

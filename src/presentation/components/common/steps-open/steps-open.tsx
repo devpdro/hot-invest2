@@ -13,6 +13,7 @@ const STEPS = [
 
 const StepsOpen = () => {
     const containerRef = useRef<HTMLDivElement>(null);
+    const stepRefs = useRef<(HTMLDivElement | null)[]>([]);
     const [progress, setProgress] = useState(0);
 
     useEffect(() => {
@@ -21,39 +22,51 @@ const StepsOpen = () => {
             const rect = containerRef.current.getBoundingClientRect();
             const windowHeight = window.innerHeight;
             const totalHeight = rect.height;
+            const isMobile = window.innerWidth <= 600;
 
             let percent = 0;
 
-            if (totalHeight > windowHeight) {
-                // Seção maior que viewport (comportamento original)
-                const start = Math.max(0, -rect.top);
-                if (rect.top <= 0 && rect.bottom >= windowHeight) {
-                    percent = Math.min(1, start / (totalHeight - windowHeight));
-                } else if (rect.top > 0) {
-                    percent = 0;
-                } else if (rect.bottom < windowHeight) {
+            if (isMobile) {
+                // Mobile: progresso relativo ao scroll do container
+                const container = containerRef.current;
+                const scrollTop = Math.max(0, -rect.top);
+                const scrollable = totalHeight - windowHeight;
+                if (scrollable > 0) {
+                    percent = Math.min(1, scrollTop / scrollable);
+                } else {
                     percent = 1;
                 }
             } else {
-                // Seção menor ou igual ao viewport
-                if (rect.top >= 0 && rect.bottom <= windowHeight) {
-                    percent = 1;
-                } else if (rect.top > 0) {
+                // Desktop: progresso baseado nos steps
+                let activeStep = 0;
+                let stepProgress = 0;
+                for (let i = 0; i < stepRefs.current.length; i++) {
+                    const step = stepRefs.current[i];
+                    if (!step) continue;
+                    const stepRect = step.getBoundingClientRect();
+                    if (stepRect.top < windowHeight / 2) {
+                        activeStep = i + 1;
+                        const visible = Math.min(windowHeight, stepRect.bottom) - Math.max(0, stepRect.top);
+                        stepProgress = Math.max(0, Math.min(1, visible / stepRect.height));
+                    }
+                }
+                const totalSteps = stepRefs.current.length;
+                if (activeStep === 0) {
                     percent = 0;
-                } else if (rect.bottom < windowHeight) {
-                    percent = 1;
                 } else {
-                    // Parcialmente visível
-                    percent = Math.min(1, (windowHeight - rect.top) / totalHeight);
-                    percent = Math.max(0, percent);
+                    percent = (activeStep - 1 + stepProgress) / (totalSteps - 1);
+                    percent = Math.max(0, Math.min(1, percent));
                 }
             }
-
             setProgress(percent);
         }
         window.addEventListener("scroll", handleScroll, { passive: true });
+        window.addEventListener("resize", handleScroll);
         handleScroll();
-        return () => window.removeEventListener("scroll", handleScroll);
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+            window.removeEventListener("resize", handleScroll);
+        };
     }, []);
 
     return (
@@ -70,7 +83,11 @@ const StepsOpen = () => {
                     </div>
                     <div className={styles.steps}>
                         {STEPS.map((desc, idx) => (
-                            <div className={styles.stepRow} key={idx}>
+                            <div
+                                className={styles.stepRow}
+                                key={idx}
+                                ref={el => { stepRefs.current[idx] = el; }}
+                            >
                                 <div className={styles.stepNum}>{String(idx + 1).padStart(2, "0")}</div>
                                 <div className={styles.stepDesc}>{desc}</div>
                             </div>

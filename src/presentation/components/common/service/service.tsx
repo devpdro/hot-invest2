@@ -12,7 +12,7 @@ export default function Service() {
                 <div className={styles.left}>
                     <h2 className={styles.title}>Canais de atendimento</h2>
                     <p className={styles.subtitle}>
-                        Fale com a gente pelo chat no app da HotInvest — atendimento 24 horas, todos os dias.
+                        Atendimento disponível 24h por dia pelo chat no aplicativo HotInvest.
                     </p>
                 </div>
                 <div className={styles.right}>
