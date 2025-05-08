@@ -21,7 +21,7 @@ const LoanRequest = () => {
     watch,
   } = useForm<LoanRequestProps>()
 
-  const [showAccountRequest, setShowAccountRequest] = useState(false)
+  const [, setShowAccountRequest] = useState(false)
 
   const onSubmit = () => {
     setShowAccountRequest(true)

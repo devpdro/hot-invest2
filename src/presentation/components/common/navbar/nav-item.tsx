@@ -16,11 +16,13 @@ const NavItem = ({ label, link, children, closeMenu }: NavbarItemProps) => {
 
   const handleClick = (event: React.MouseEvent) => {
     if (!children) {
-      closeMenu && closeMenu() 
-      return 
+      if (closeMenu) {
+        closeMenu()
+      }
+      return
     }
-    
-    event.stopPropagation() 
+
+    event.stopPropagation()
     setIsOpen(!isOpen)
   }
 
@@ -39,7 +41,7 @@ const NavItem = ({ label, link, children, closeMenu }: NavbarItemProps) => {
               key={key}
               href={item.link ?? '#'}
               className={S['dropdown-link']}
-              onClick={closeMenu} // Fecha o menu principal ao clicar no submenu
+              onClick={closeMenu}
             >
               <span className={S['link-label']}>{item.label}</span>
               <div>{item.new && <p className={S.new}>{item.new}</p>}</div>

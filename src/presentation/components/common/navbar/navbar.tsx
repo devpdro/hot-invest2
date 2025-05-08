@@ -10,6 +10,12 @@ import { MENU } from 'src/data/ui'
 
 import S from './navbar.module.scss'
 
+interface MenuItem {
+  label: string
+  link: string
+  new?: string
+}
+
 const Navbar = () => {
   const [isSideMenuOpen, setSideMenu] = useState(false)
 
@@ -34,7 +40,7 @@ const Navbar = () => {
                 </Link>
                 {item.children && (
                   <div className={S.dropdown}>
-                    {item.children.map((item: any, key: number) => (
+                    {item.children.map((item: MenuItem, key: number) => (
                       <Link key={key} href={item.link} legacyBehavior>
                         <a
                           className={S['dropdown-link']}
