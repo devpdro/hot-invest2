@@ -1,4 +1,3 @@
-import { type ElementType } from 'react'
 import { Modal as ResponsiveModal } from 'react-responsive-modal'
 import 'react-responsive-modal/styles.css'
 
