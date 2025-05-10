@@ -25,6 +25,9 @@
       @include display-flex(flex-start, space-between);
       flex-direction: column;
     }
+    @media (max-width: 600px) {
+     margin: 4rem 0 0 0;
+    }
     .text-section {
       gap: 8px;
       .title {
