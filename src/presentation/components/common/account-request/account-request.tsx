@@ -110,10 +110,12 @@ export default function AccountRequest({ cpf = "" }: AccountRequestProps) {
     const email = watch('email');
     const confirmEmail = watch('confirmEmail');
 
-    function getErrorMessage(error: any) {
+    function getErrorMessage(error: unknown) {
         if (!error) return null;
         if (typeof error === 'string') return error;
-        if (typeof error.message === 'string') return error.message;
+        if (typeof error === 'object' && error !== null && 'message' in error && typeof (error as { message?: unknown }).message === 'string') {
+            return (error as { message: string }).message;
+        }
         return null;
     }
 
@@ -137,7 +139,7 @@ export default function AccountRequest({ cpf = "" }: AccountRequestProps) {
                                     onChange={field.onChange}
                                     onBlur={field.onBlur}
                                 >
-                                    {(inputProps: any) => (
+                                    {(inputProps: React.InputHTMLAttributes<HTMLInputElement>) => (
                                         <input
                                             {...inputProps}
                                             className={styles.input}
@@ -192,7 +194,7 @@ export default function AccountRequest({ cpf = "" }: AccountRequestProps) {
                                     onChange={field.onChange}
                                     onBlur={field.onBlur}
                                 >
-                                    {(inputProps: any) => (
+                                    {(inputProps: React.InputHTMLAttributes<HTMLInputElement>) => (
                                         <input
                                             {...inputProps}
                                             className={styles.input}

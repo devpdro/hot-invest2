@@ -3,18 +3,18 @@ import { NavbarItemProps } from 'src/data/models'
 export const MENU: NavbarItemProps[] = [
   {
     label: 'Abra sua conta',
-    link: '/#abra-sua-conta',
+    link: '#abra-sua-conta',
   },
   {
     label: 'Benefícios',
-    link: '/#beneficios',
+    link: '#beneficios',
   },
   {
     label: 'Perguntas frequentes',
-    link: '/#perguntas-frequentes',
+    link: '#perguntas-frequentes',
   },
   {
     label: 'Atendimento',
-    link: '/#atendimento',
+    link: '#atendimento',
   },
 ]

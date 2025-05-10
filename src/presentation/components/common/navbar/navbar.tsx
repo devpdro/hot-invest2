@@ -4,7 +4,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useState } from 'react'
 import { IconMenu2, IconChevronDown } from '@tabler/icons-react';
-import { useRouter, usePathname } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 
 import { NavMobile } from 'src/presentation/components'
 import { IMAGE } from 'src/presentation/assets'
@@ -49,7 +49,7 @@ const Navbar = () => {
               <div key={key} className={S['nav-link']}>
                 {item.link && item.link.startsWith('#') ? (
                   <a
-                    href={item.link}
+                    href={pathname === '/' ? item.link : `/${item.link}`}
                     className={S['link-text']}
                     onClick={handleSmoothScroll(item.link)}
                   >
