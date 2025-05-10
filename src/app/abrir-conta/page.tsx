@@ -1,9 +1,10 @@
 'use client'
 
-import { useSearchParams, useRouter } from 'next/navigation';
 import { useEffect } from 'react';
-import { makeOpenAccount } from 'src/main/factories/pages';
 import { Suspense } from 'react';
+import { useSearchParams, useRouter } from 'next/navigation';
+
+import { makeOpenAccount } from 'src/main/factories/pages';
 
 function OpenAccountWithSearchParams() {
     const searchParams = useSearchParams();
