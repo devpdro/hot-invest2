@@ -87,7 +87,7 @@ export default function Footer() {
           <span style={{ color: "#EF5635" }}>Hot</span><span style={{ color: "#fff", fontStyle: "italic" }}>Invest</span>
         </div>
         <div className={styles.copyright}>
-          © 2025 HotInvest S.A - Instituição de Pagamento. 54.139.158/0001-76. Rua Exemplo, 123 - Centro, São Pedro, SP - 13520-000
+          © 2025 HotInvest S.A - Instituição de Pagamento. 54.139.158/0001-76. Centro, São Pedro, SP - 13520-000
         </div>
         <div className={styles.accessibility}>
           <span role="img" aria-label="acessibilidade">🦽</span>

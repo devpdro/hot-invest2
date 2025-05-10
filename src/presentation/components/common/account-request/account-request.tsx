@@ -78,6 +78,7 @@ export default function AccountRequest({ cpf = "" }: AccountRequestProps) {
 
     const nomeRef = useRef<HTMLInputElement>(null);
     const [success, setSuccess] = useState(false);
+    const [isSending, setIsSending] = useState(false);
 
     useEffect(() => {
         let cpfValue = cpf;
@@ -90,7 +91,6 @@ export default function AccountRequest({ cpf = "" }: AccountRequestProps) {
         }
     }, [cpf, setValue]);
 
-    // Garante foco no nome quando CPF for preenchido automaticamente
     const cpfWatched = watch('cpf');
     useEffect(() => {
         if (cpfWatched && cpfWatched.length === 14 && nomeRef.current) {
@@ -99,9 +99,11 @@ export default function AccountRequest({ cpf = "" }: AccountRequestProps) {
     }, [cpfWatched]);
 
     const onSubmit = () => {
+        setIsSending(true);
         setTimeout(() => {
             setSuccess(true);
             reset();
+            setIsSending(false);
         }, 3000);
     };
 
@@ -121,6 +123,14 @@ export default function AccountRequest({ cpf = "" }: AccountRequestProps) {
 
     return (
         <section className={styles.section}>
+            <button
+                type="button"
+                className={styles['back-btn']}
+                onClick={() => window.history.back()}
+                aria-label="Voltar"
+            >
+                <span role="img" aria-label="Voltar">⬅️</span>
+            </button>
             <div className={styles.right}>
                 <form className={styles.form} onSubmit={handleSubmit(onSubmit)} noValidate>
                     <div className={`${styles['input-wrapper']} ${errors.cpf ? styles['input-error'] : watch('cpf')?.length === 14 ? styles['input-success'] : ''}`}>
@@ -162,10 +172,12 @@ export default function AccountRequest({ cpf = "" }: AccountRequestProps) {
                             type="text"
                             placeholder="Nome Completo"
                             autoComplete="off"
-                            {...register('nome')}
-                            ref={e => {
-                                register('nome').ref(e);
-                                if (e) (nomeRef as any).current = e;
+                            {...register('nome', {
+                                setValueAs: v => v
+                            })}
+                            ref={el => {
+                                register('nome').ref(el);
+                                if (el !== null) Object.defineProperty(nomeRef, 'current', { value: el, writable: true });
                             }}
                         />
                         {watch('nome') && !errors.nome ? (
@@ -252,14 +264,16 @@ export default function AccountRequest({ cpf = "" }: AccountRequestProps) {
 
                     <button
                         className={
-                            isValid && !isSubmitting
+                            isValid && !isSubmitting && !isSending
                                 ? `${styles['submit-btn']} ${styles['enabled']}`
                                 : styles['submit-btn']
                         }
                         type="submit"
-                        disabled={!isValid || isSubmitting}
+                        disabled={!isValid || isSubmitting || isSending}
                     >
-                        <span className={styles['btn-text']}>Enviar</span>
+                        <span className={styles['btn-text']}>
+                            {isSending ? 'Enviando...' : 'Enviar'}
+                        </span>
                     </button>
                 </form>
             </div>

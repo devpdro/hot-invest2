@@ -2,8 +2,6 @@
 
 import { useEffect } from 'react';
 
-import { IMAGE } from 'src/presentation/assets';
-
 import { FiCheckCircle, FiX } from 'react-icons/fi';
 
 import styles from './account-success-screen.module.scss';
@@ -17,7 +15,7 @@ export default function AccountSuccessScreen({ onClose }: AccountSuccessScreenPr
         if (!onClose) return;
         const timer = setTimeout(() => {
             onClose();
-        }, 1000000);
+        }, 10000);
         return () => clearTimeout(timer);
     }, [onClose]);
 
@@ -33,7 +31,6 @@ export default function AccountSuccessScreen({ onClose }: AccountSuccessScreenPr
             <p className={styles.successTextFull}>
                 Seu pedido vai ser analisado e, se estiver tudo certo, uma resposta vai ser enviada para o seu e-mail cadastrado.
             </p>
-            <img src={IMAGE.CELULAR_CARTAO.src} alt="App HotInvest" className={styles.successImgFull} />
         </div>
     );
 } 

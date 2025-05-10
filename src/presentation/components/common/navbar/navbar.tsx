@@ -3,11 +3,12 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { useState } from 'react'
+import { IconMenu2, IconChevronDown } from '@tabler/icons-react';
+import { useRouter, usePathname } from 'next/navigation';
 
 import { NavMobile } from 'src/presentation/components'
 import { IMAGE } from 'src/presentation/assets'
 import { MENU } from 'src/data/ui'
-import { IconMenu2, IconChevronDown } from '@tabler/icons-react';
 
 import S from './navbar.module.scss'
 
@@ -20,12 +21,19 @@ interface MenuItem {
 const Navbar = () => {
   const [isSideMenuOpen, setSideMenu] = useState(false)
 
+  const router = useRouter();
+  const pathname = usePathname();
+
   const handleSmoothScroll = (id: string) => (e: React.MouseEvent) => {
-    e.preventDefault();
-    const el = document.getElementById(id.replace('#', ''));
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
+    const isHome = pathname === '/';
+    if (isHome) {
+      e.preventDefault();
+      const el = document.getElementById(id.replace('#', ''));
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth' });
+      }
     }
+    // Se não está na home, deixa o link funcionar normalmente (Next.js navega para /#id)
   };
 
   return (
