@@ -7,7 +7,6 @@
   background: #ededed;
   @media (max-width: 600px) {
     padding: 2rem 2rem;
-    border-radius: 25px;
   }
 }
 
@@ -50,8 +49,11 @@
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
-  padding: 48px 0 0 0;
   min-height: 100vh;
+  @media (max-width: 600px) {
+    padding: 24px 0 0 0;
+    border-radius: 25px;
+  }
 }
 
 .form {
