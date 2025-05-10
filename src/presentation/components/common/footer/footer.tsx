@@ -3,7 +3,7 @@
 
 import Link from 'next/link';
 
-import { FaLinkedinIn, FaYoutube, FaFacebookF, FaInstagram, FaTimes } from "react-icons/fa";
+import { FaLinkedinIn, FaYoutube, FaFacebookF, FaInstagram } from "react-icons/fa";
 
 import styles from "./footer.module.scss";
 

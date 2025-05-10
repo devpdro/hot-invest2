@@ -1,4 +1,4 @@
-import { Meta, Navbar, Header, Footer, StepsOpen, Card, FAQ, Service, Benefits } from 'src/presentation/components'
+import { Meta, Navbar, Header, Footer, StepsOpen, Card, FAQ, Service, Benefits, Mission } from 'src/presentation/components'
 import { IMAGE } from 'src/presentation/assets'
 
 const Home = () => {
@@ -28,6 +28,7 @@ const Home = () => {
       <StepsOpen />
       <Card />
       <Benefits />
+      <Mission />
       <Service />
       <FAQ />
       <Footer />

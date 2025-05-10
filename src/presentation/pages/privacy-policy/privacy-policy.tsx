@@ -123,7 +123,7 @@ const PrivacyPolicy = () => {
                     <p>Para exercer seus direitos:</p>
                     <ul>
                         <li>E-mail: dpo@hotinvest.com.br</li>
-                        <li>Assunto: "Solicitação de Titular de Dados"</li>
+                        <li>Assunto: &quot;Solicitação de Titular de Dados&quot;</li>
                     </ul>
                     <p>Responderemos em até 15 dias contados do recebimento da solicitação.</p>
 
@@ -150,7 +150,6 @@ const PrivacyPolicy = () => {
                     <p className={styles.privacyFinal}>HotInvest — Compromisso com a Excelência em Proteção de Dados e Governança Corporativa</p>
                     <p className={styles.privacyVersao}>Versão 1.0 — Atualizada em 26 de abril de 2025</p>
                 </div>
-
             </div>
             <Footer />
         </div>

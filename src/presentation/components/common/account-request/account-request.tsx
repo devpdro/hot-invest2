@@ -123,14 +123,6 @@ export default function AccountRequest({ cpf = "" }: AccountRequestProps) {
 
     return (
         <section className={styles.section}>
-            <button
-                type="button"
-                className={styles['back-btn']}
-                onClick={() => window.history.back()}
-                aria-label="Voltar"
-            >
-                <span role="img" aria-label="Voltar">⬅️</span>
-            </button>
             <div className={styles.right}>
                 <form className={styles.form} onSubmit={handleSubmit(onSubmit)} noValidate>
                     <div className={`${styles['input-wrapper']} ${errors.cpf ? styles['input-error'] : watch('cpf')?.length === 14 ? styles['input-success'] : ''}`}>

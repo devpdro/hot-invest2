@@ -21,7 +21,6 @@ interface MenuItem {
 const Navbar = () => {
   const [isSideMenuOpen, setSideMenu] = useState(false)
 
-  const router = useRouter();
   const pathname = usePathname();
 
   const handleSmoothScroll = (id: string) => (e: React.MouseEvent) => {
@@ -33,7 +32,6 @@ const Navbar = () => {
         el.scrollIntoView({ behavior: 'smooth' });
       }
     }
-    // Se não está na home, deixa o link funcionar normalmente (Next.js navega para /#id)
   };
 
   return (
