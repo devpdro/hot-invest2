@@ -34,7 +34,7 @@ const NavMobile = ({ closeMenu }: NavMobileProps) => {
           ))}
         </div>
         <aside className={S['right-section']}>
-          <Link href="#" legacyBehavior>
+          <Link href="/abrir-conta" legacyBehavior>
             <a className={S.link}>
               <span>Quero ser HotInvest</span>
             </a>
