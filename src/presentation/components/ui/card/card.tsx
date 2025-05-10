@@ -1,4 +1,4 @@
-import React from "react";
+import Link from "next/link";
 
 import { IMAGE } from "src/presentation/assets";
 
@@ -15,12 +15,14 @@ const Card = () => {
                 <p className={styles.subtitle}>
                     Zero tarifas, zero complicações e<br /> benefícios que realmente importam.
                 </p>
-                <button
-                    className={styles.button}
-                    aria-label="Conheça o Cartão HotInvest"
-                >
-                    Pedir agora
-                </button>
+                <Link href="/abrir-conta">
+                    <button
+                        className={styles.button}
+                        aria-label="Conheça o Cartão HotInvest"
+                    >
+                        Pedir agora
+                    </button>
+                </Link>
             </div>
 
             <div className={styles.rightCol}>

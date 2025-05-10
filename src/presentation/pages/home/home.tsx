@@ -1,9 +1,5 @@
-import { Meta, Navbar, Header, Footer, StepsOpen, Card } from 'src/presentation/components'
+import { Meta, Navbar, Header, Footer, StepsOpen, Card, FAQ, Service, Benefits } from 'src/presentation/components'
 import { IMAGE } from 'src/presentation/assets'
-
-import FAQ from 'src/presentation/components/common/faq/faq'
-import Service from 'src/presentation/components/common/service/service'
-import Benefits from 'src/presentation/components/common/benefits/benefits'
 
 const Home = () => {
   const IMAGES = IMAGE.EQUIPE_REUNIDA
@@ -32,10 +28,8 @@ const Home = () => {
       <StepsOpen />
       <Card />
       <Benefits />
-
-      <FAQ />
       <Service />
-
+      <FAQ />
       <Footer />
     </div>
   )

@@ -6,6 +6,7 @@ import {
     IconMoodSmile,
     IconUsers
 } from "@tabler/icons-react";
+
 import styles from "./benefits.module.scss";
 
 const BENEFITS = [

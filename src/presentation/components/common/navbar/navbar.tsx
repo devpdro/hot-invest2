@@ -5,8 +5,9 @@ import Link from 'next/link'
 import { useState } from 'react'
 
 import { NavMobile } from 'src/presentation/components'
-import { IMAGE, ICON } from 'src/presentation/assets'
+import { IMAGE } from 'src/presentation/assets'
 import { MENU } from 'src/data/ui'
+import { IconMenu2, IconChevronDown } from '@tabler/icons-react';
 
 import S from './navbar.module.scss'
 
@@ -19,7 +20,6 @@ interface MenuItem {
 const Navbar = () => {
   const [isSideMenuOpen, setSideMenu] = useState(false)
 
-  // Função para scroll suave
   const handleSmoothScroll = (id: string) => (e: React.MouseEvent) => {
     e.preventDefault();
     const el = document.getElementById(id.replace('#', ''));
@@ -48,13 +48,13 @@ const Navbar = () => {
                     onClick={handleSmoothScroll(item.link)}
                   >
                     <span>{item.label}</span>
-                    {item.children && <ICON.IoIosArrowDown className={`${S['arrow-icon']} ${S['rotate-180']}`} />}
+                    {item.children && <IconChevronDown className={`${S['arrow-icon']} ${S['rotate-180']}`} />}
                   </a>
                 ) : (
                   <Link href={item.link ?? '#'} legacyBehavior>
                     <a className={S['link-text']}>
                       <span>{item.label}</span>
-                      {item.children && <ICON.IoIosArrowDown className={`${S['arrow-icon']} ${S['rotate-180']}`} />}
+                      {item.children && <IconChevronDown className={`${S['arrow-icon']} ${S['rotate-180']}`} />}
                     </a>
                   </Link>
                 )}
@@ -78,14 +78,14 @@ const Navbar = () => {
         </section>
 
         <aside className={S['right-section']}>
-          <Link href="#" legacyBehavior>
+          <Link href="/abrir-conta" legacyBehavior>
             <a className={S.link}>
               <span>Quero ser HotInvest</span>
             </a>
           </Link>
         </aside>
 
-        <ICON.IconMenu3 onClick={() => setSideMenu(true)} className={S['menu-icon']} />
+        <IconMenu2 onClick={() => setSideMenu(true)} className={S['menu-icon']} />
       </div>
     </nav>
   )

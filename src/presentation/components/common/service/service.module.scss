@@ -1,25 +1,16 @@
 @import '../../../styles/themes/light.scss';
 @import '../../../styles/themes/mixins.scss';
 
-.container {
-  background: #f7f7f7;  
-  padding: 0 2rem;
-
-}
 .serviceSection {
   @include container(1180px,4.5rem auto 0 auto);
+  padding:84px 2rem 84px 2rem;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: flex-start;
-  padding:84px 0 84px 0;
   @media (max-width: 900px) {
     flex-direction: column;
     align-items: center;
-    padding: 40px 0 40px 0;
-  }
-  @media (max-width: 600px) {
-    padding: 32px 0 32px 0;
   }
 }
 

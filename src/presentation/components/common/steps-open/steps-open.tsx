@@ -27,8 +27,6 @@ const StepsOpen = () => {
             let percent = 0;
 
             if (isMobile) {
-                // Mobile: progresso relativo ao scroll do container
-                const container = containerRef.current;
                 const scrollTop = Math.max(0, -rect.top);
                 const scrollable = totalHeight - windowHeight;
                 if (scrollable > 0) {
@@ -37,7 +35,7 @@ const StepsOpen = () => {
                     percent = 1;
                 }
             } else {
-                // Desktop: progresso baseado nos steps
+
                 let activeStep = 0;
                 let stepProgress = 0;
                 for (let i = 0; i < stepRefs.current.length; i++) {
@@ -70,31 +68,33 @@ const StepsOpen = () => {
     }, []);
 
     return (
-        <section id="abra-sua-conta" className={styles.section}>
-            <h2 className={styles.title}>Abra sua conta no Hot<span style={{ color: "#16487E", fontStyle: "italic" }}>Invest</span> em poucos minutos</h2>
-            <div className={styles.cardWrapper}>
-                <div className={styles.card} ref={containerRef}>
-                    <div className={styles.lineContainer}>
-                        <div className={styles.lineBg}></div>
-                        <div
-                            className={styles.lineProgress}
-                            style={{ height: `${progress * 100}%` }}
-                        ></div>
-                    </div>
-                    <div className={styles.steps}>
-                        {STEPS.map((desc, idx) => (
+        <section className={styles.container}>
+            <div id="abra-sua-conta" className={styles.section}>
+                <h2 className={styles.title}>Abra sua conta no Hot<span style={{ color: "#16487E", fontStyle: "italic" }}>Invest</span> em poucos minutos</h2>
+                <div className={styles.cardWrapper}>
+                    <div className={styles.card} ref={containerRef}>
+                        <div className={styles.lineContainer}>
+                            <div className={styles.lineBg}></div>
                             <div
-                                className={styles.stepRow}
-                                key={idx}
-                                ref={el => { stepRefs.current[idx] = el; }}
-                            >
-                                <div className={styles.stepNum}>{String(idx + 1).padStart(2, "0")}</div>
-                                <div className={styles.stepDesc}>{desc}</div>
-                            </div>
-                        ))}
+                                className={styles.lineProgress}
+                                style={{ height: `${progress * 100}%` }}
+                            ></div>
+                        </div>
+                        <div className={styles.steps}>
+                            {STEPS.map((desc, idx) => (
+                                <div
+                                    className={styles.stepRow}
+                                    key={idx}
+                                    ref={el => { stepRefs.current[idx] = el; }}
+                                >
+                                    <div className={styles.stepNum}>{String(idx + 1).padStart(2, "0")}</div>
+                                    <div className={styles.stepDesc}>{desc}</div>
+                                </div>
+                            ))}
+                        </div>
                     </div>
                 </div>
-            </div>
+        </div>
         </section>
     );
 }

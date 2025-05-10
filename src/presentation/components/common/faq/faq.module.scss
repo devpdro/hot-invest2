@@ -2,10 +2,11 @@
 @import '../../../styles/themes/mixins.scss';
 
 .faqSection {
-  @include container(1180px, 64px auto 0 auto);
+  @include container(1280px, 64px auto 8rem auto);
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+  padding: 0 2rem;
 }
 
 .left {
@@ -45,6 +46,7 @@
   min-width: 320px;
   text-align: center;
   cursor: alias;
+  margin-bottom: 2rem;
 }
 
 .right {
@@ -61,7 +63,7 @@
 .card {
   background: #fff;
   border-radius: 2rem;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.2);
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -109,4 +111,87 @@
   color: #111;
   margin-left: 24px;
   flex-shrink: 0;
+}
+
+@media (max-width: 900px) {
+  .faqSection {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .left {
+    margin-right: 0;
+    margin-top: 24px;
+    width: 100%;
+    align-items: flex-start;
+  }
+  .right {
+    margin-left: 0;
+    min-width: 0;
+    max-width: 100%;
+    width: 100%;
+    gap: 16px;
+  }
+  .title {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+  .subtitle {
+    font-size: 1rem;
+    margin-bottom: 24px;
+    max-width: 100%;
+  }
+  .button {
+    width: 100%;
+    min-width: unset;
+    font-size: 1rem;
+    padding: 1rem 0.5rem;
+  }
+  .cardHeader {
+    padding: 20px 16px;
+  }
+  .card {
+    font-size: 1rem;
+    border-radius: 1.2rem;
+  }
+  .answer {
+    font-size: 0.98rem;
+    padding: 0 16px;
+    padding-bottom: 20px;
+  }
+  .icon {
+    font-size: 1.5rem;
+    margin-left: 12px;
+  }
+}
+
+@media (max-width: 600px) {
+  .left {
+    margin-top: 12px;
+  }
+  .title {
+    font-size: 1.6rem;
+  }
+  .subtitle {
+    font-size: 0.95rem;
+  }
+  .button {
+    font-size: 0.95rem;
+    padding: 0.8rem 0.2rem;
+  }
+  .cardHeader {
+    padding: 14px 8px;
+  }
+  .card {
+    font-size: 0.95rem;
+    border-radius: 0.8rem;
+  }
+  .answer {
+    font-size: 0.93rem;
+    padding: 0 8px;
+    padding-bottom: 12px;
+  }
+  .icon {
+    font-size: 1.2rem;
+    margin-left: 8px;
+  }
 }

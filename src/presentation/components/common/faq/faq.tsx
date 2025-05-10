@@ -1,10 +1,12 @@
 "use client";
 
-import React, { useState } from "react";
-import styles from "./faq.module.scss";
+import { useState } from "react";
+
 import { FiPlus, FiX } from "react-icons/fi";
 
-const questions = [
+import styles from "./faq.module.scss";
+
+const QUESTIONS = [
     {
         question: "É seguro usar um banco digital?",
         answer: `Sim! Bancos digitais seguem as mesmas normas de segurança dos bancos tradicionais, com proteção de dados, criptografia e fiscalização do Banco Central. Além disso, você pode acompanhar todas as movimentações em tempo real pelo app.`,
@@ -40,7 +42,7 @@ export default function FAQ() {
                 <button className={styles.button}>Confira perguntas frequentes</button>
             </div>
             <div className={styles.right}>
-                {questions.map((q, i) => (
+                {QUESTIONS.map((q, i) => (
                     <div
                         className={`${styles.card} ${open === i ? styles.open : ""}`}
                         key={i}

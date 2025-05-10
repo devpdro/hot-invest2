@@ -25,13 +25,13 @@
   gap: 1rem;
   
   .logo {
-    width: 135px;
+    width: 120px;
     height: 50px;
   }
   
   .nav-items {
     display: none;
-    
+   
     @media (min-width: 1024px) {
       @include display-flex(center, center);
       
@@ -45,7 +45,10 @@
           color: $color-darkHigh;
           font-size: 1rem;
           gap: 0.4rem;
-          
+          transition: color 0.1s ease;
+          &:hover {
+            color: $color-primary;
+          }
           .rotate-180 {
             @include hover(all 0.3s ease);
             transform: rotate(180deg);

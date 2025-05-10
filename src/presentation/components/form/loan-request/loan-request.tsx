@@ -1,8 +1,8 @@
 'use client'
 
-import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import InputMask from 'react-input-mask'
+import { useRouter } from 'next/navigation'
 
 import { AiOutlineInfoCircle, AiOutlineCheckCircle } from 'react-icons/ai'
 import { FiChevronRight } from 'react-icons/fi'
@@ -21,10 +21,13 @@ const LoanRequest = () => {
     watch,
   } = useForm<LoanRequestProps>()
 
-  const [, setShowAccountRequest] = useState(false)
+  const router = useRouter();
 
-  const onSubmit = () => {
-    setShowAccountRequest(true)
+  const onSubmit = (data: LoanRequestProps) => {
+    if (typeof window !== 'undefined') {
+      sessionStorage.setItem('hotinvest_cpf', data.cpf);
+    }
+    router.push('/abrir-conta');
   }
 
   const isCpfValid = !errors.cpf && watch('cpf')?.length === 14
